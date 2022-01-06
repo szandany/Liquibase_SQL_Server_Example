@@ -1,4 +1,4 @@
--- liquibase formatted sql
+-- liquibase formatted sql changeLogId:e2baab75-eb98-40c0-848b-e4c758fd39bf
 
 --changeset SteveZ:createTable_salesTableZ context:"DEV" labels:"staging,hotfix"
 CREATE TABLE salesTableZ (
