@@ -9,7 +9,7 @@ step "Liquibase - Run Database Changes" {
             liquibaseAdditionalSwitches = "--log-level=info"
             liquibaseAuthenticationMethod = "usernamepassword"
             liquibaseChangeLogFileName = "changelog.sql"
-            liquibaseChangeset = "{\"PackageId\":\"123\",\"FeedId\":\"Octopus Server (built-in)\"}"
+            liquibaseChangeset = "{\"PackageId\":\"hello-world\",\"FeedId\":\"Octopus Server (built-in)\"}"
             liquibaseCommand = "update"
             liquibaseCommandStyle = "modern"
             liquibaseDatabaseName = "DEV"
@@ -30,7 +30,7 @@ step "Liquibase - Run Database Changes" {
         packages "liquibaseChangeset" {
             acquisition_location = "Server"
             feed = "Octopus Server (built-in)"
-            package_id = "123"
+            package_id = "hello-world"
             properties = {
                 Extract = "True"
                 PackageParameterName = "liquibaseChangeset"
