@@ -1,5 +1,3 @@
-# This is a basic workflow to help you get started with Actions
-
 name: CI
 
 # Controls when the workflow will run
@@ -16,15 +14,10 @@ on:
 env:
     LIQUIBASE_PRO_LICENSE_KEY: ${{ secrets.LIQUIBASE_PRO_LICENSE_KEY }}
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
   build:
-    # The type of runner that the job will run on
     runs-on: ubuntu-latest
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
       - name: Liquibase Checks Run Action
         uses: liquibase-github-actions/checks-run@v4.19.1
@@ -35,14 +28,8 @@ jobs:
           format: json
           outputFile: checks_output.json
           checks-scope: changelog
-
-      - uses: khorwood/sarif-converter@main
-        with:
-          type: checkov
-          input: ./checks_output.json
-          output: ./checks_output.sarif
       
       - uses: actions/upload-artifact@v3
         with:
           name: checks-report
-          path: ./checks_output.sarif
+          path: ./checks_output.json
