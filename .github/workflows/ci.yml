@@ -29,4 +29,10 @@ jobs:
           headless: true
           licenseKey: ${{ secrets.LIQUIBASE_LICENSE_KEY }}
           changelogFile: changelog.sql
+          format: json
+          outputFile: checks_output.json
+      - uses: actions/upload-artifact@v3
+        with:
+          name: checks-report
+          path: ./checks_output.json
 
