@@ -35,8 +35,14 @@ jobs:
           format: json
           outputFile: checks_output.json
           checks-scope: changelog
+
+      - uses: khorwood/sarif-converter@main
+        with:
+          type: checkov
+          input: ./checks_output.json
+          output: ./checks_output.sarif
+      
       - uses: actions/upload-artifact@v3
         with:
           name: checks-report
-          path: ./checks_output.json
-
+          path: ./checks_output.sarif
