@@ -34,6 +34,7 @@ jobs:
           changelogFile: changelog.sql
           format: json
           outputFile: checks_output.json
+          checks-scope: changelog
       - uses: actions/upload-artifact@v3
         with:
           name: checks-report
