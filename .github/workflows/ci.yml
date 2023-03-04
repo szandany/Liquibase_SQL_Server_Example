@@ -28,4 +28,5 @@ jobs:
         with:
           headless: true
           licenseKey: ${{ secrets.LIQUIBASE_LICENSE_KEY }}
+          changelogFile: changelog.sql
 
