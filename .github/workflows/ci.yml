@@ -24,7 +24,8 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
       - name: Liquibase Checks Copy Action
-        uses: liquibase-github-actions/checks-copy@v4.19.1
+        uses: liquibase-github-actions/checks-run@v4.19.1
         with:
+          headless: true
           licenseKey: ${{ secrets.LIQUIBASE_LICENSE_KEY }}
 
